@@ -1,0 +1,49 @@
+#sidebar {
+    display: inline-block;
+    width: 275px;
+    height: 500px;
+    float: left;
+    }
+
+#main {
+    display: inline-block;
+    width: 450px;
+    height: 500px;
+    border: 1px solid black;
+    float: left;
+    margin:10px 10px 10px 0px;
+    }
+
+#currWeather {
+    height: 275px;
+    border: 1px solid black;
+    margin:10px;
+
+}
+
+#detData {
+    height: 214px;
+    border: 1px solid black;
+    margin:10px;
+
+}
+
+.field {
+    width: 120px;
+    height: 140px;
+    float: left;
+    display: inline-block;
+}
+
+#headline {
+    height: 350px;
+}
+
+#forcField {
+    height: 130px;
+    text-align: center;
+    width: 62px;
+    display: inline-block;
+    float: left;
+    border: 1px solid gray;
+}
