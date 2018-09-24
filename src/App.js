@@ -22,6 +22,14 @@ class App extends React.Component {
     temp5: undefined,
     temp6: undefined,
     temp7: undefined,
+    weatherDescription1: undefined,
+    weatherDescription2: undefined,
+    weatherDescription3: undefined,
+    weatherDescription4: undefined,
+    weatherDescription5: undefined,
+    weatherDescription6: undefined,
+    weatherDescription7: undefined,
+
      }
      
   getWeather = async () => {
@@ -56,6 +64,15 @@ class App extends React.Component {
         temp5: data.data[5].temp,
         temp6: data.data[6].temp,
         temp7: data.data[7].temp,
+        weatherDescription1: data.data[1].weather.description,
+        weatherDescription2: data.data[2].weather.description,
+        weatherDescription3: data.data[3].weather.description,
+        weatherDescription4: data.data[4].weather.description,
+        weatherDescription5: data.data[5].weather.description,
+        weatherDescription6: data.data[6].weather.description,
+        weatherDescription7: data.data[7].weather.description,
+
+
 
       }) ;
       }
@@ -97,6 +114,13 @@ class App extends React.Component {
             temp5 = {this.state.temp5}
             temp6 = {this.state.temp6}
             temp7 = {this.state.temp7}
+            weatherDescription1 = {this.state.weatherDescription1}
+            weatherDescription2 = {this.state.weatherDescription2}
+            weatherDescription3 = {this.state.weatherDescription3}
+            weatherDescription4 = {this.state.weatherDescription4}
+            weatherDescription5 = {this.state.weatherDescription5}
+            weatherDescription6 = {this.state.weatherDescription6}
+            weatherDescription7 = {this.state.weatherDescription7}
 
         />
         </div>
