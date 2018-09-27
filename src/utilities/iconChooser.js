@@ -12,10 +12,10 @@ import Snowing from "../assets/icons/snowing.svg";
     else if (weatherDescription === "Overcast clouds" || weatherDescription === "Broken clouds" || weatherDescription === "Scattered clouds")     {   
         return Cloud;
         }
-    else if (weatherDescription === "Few clouds" )     {   
+    else if (weatherDescription === "Few clouds" || weatherDescription === "Fog")     {   
         return Cloudy;
         }    
-    else if (weatherDescription === "Sunny" )     {   
+    else if (weatherDescription === "Sunny" || weatherDescription === "Clear Sky" || weatherDescription === "Clear sky")     {   
         return Sun;
         } 
     else if (weatherDescription === "Thunderstorm with rain" )     {   
@@ -26,4 +26,4 @@ import Snowing from "../assets/icons/snowing.svg";
       }
   }
 
-export default chooseIcon;
+export default chooseIcon

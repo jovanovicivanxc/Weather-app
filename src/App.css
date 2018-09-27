@@ -42,13 +42,14 @@
 }
 
 #forcField {
-    height: 130px;
+    height: 125px;
     text-align: center;
     width: 62px;
     display: inline-block;
     float: left;
     border: 1px solid gray;
-}
+    background-color: goldenrod ;
+    }
 
 #tempAndDes {
     display: inline-block;
@@ -56,8 +57,30 @@
 
 #icon {
     display: inline-block;
+    margin-left: 50px;
 }
 
-img {
-    width:100px;
+#forcField img {
+    width:60px;
+    height:50px;
+    }
+
+#iconImg {
+    width:80px;
+}
+
+#refresh {
+    position: absolute;
+    top: 240px; 
+    left: 50px;
+}
+
+#refImg {
+    width: 20px;
+}
+
+#weekForecast {
+    background: url(./assets/images/bg.jpg);
+    background-size: cover;
+
 }
