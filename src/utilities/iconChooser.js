@@ -6,7 +6,7 @@ import Storm from "../assets/icons/storn.svg";
 import Snowing from "../assets/icons/snowing.svg";
 
   const chooseIcon = (weatherDescription) => {
-    if (weatherDescription === "Light rain" || weatherDescription === "Heavy rain" || weatherDescription === "Light shower rain")     {   
+    if (weatherDescription === "Light rain" || weatherDescription === "Heavy rain" || weatherDescription === "Light shower rain" || weatherDescription === "Moderate rain")     {   
         return Rain;
        }  
     else if (weatherDescription === "Overcast clouds" || weatherDescription === "Broken clouds" || weatherDescription === "Scattered clouds")     {   

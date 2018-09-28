@@ -7,32 +7,37 @@ import WeekForecast from './components/WeekForecast';
 const api_key = "53ef50b153144d289e1dc4cfc7676cf9";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-  state = {
-    currTemp: undefined,
-    weatherDescription: undefined,
-    humidity: undefined,
-    dewPt: undefined,
-    uvIndex: undefined,
-    visibility: undefined,
-    city: "Belgrade,RS",
-    temp1: undefined,
-    temp2: undefined,
-    temp3: undefined,
-    temp4: undefined,
-    temp5: undefined,
-    temp6: undefined,
-    temp7: undefined,
-    weatherDescription1: undefined,
-    weatherDescription2: undefined,
-    weatherDescription3: undefined,
-    weatherDescription4: undefined,
-    weatherDescription5: undefined,
-    weatherDescription6: undefined,
-    weatherDescription7: undefined,
-    timePassed: 0,
+    this.state = {
+      currTemp: undefined,
+      weatherDescription: undefined,
+      humidity: undefined,
+      dewPt: undefined,
+      uvIndex: undefined,
+      visibility: undefined,
+      city: "Belgrade",
+      temp1: undefined,
+      temp2: undefined,
+      temp3: undefined,
+      temp4: undefined,
+      temp5: undefined,
+      temp6: undefined,
+      temp7: undefined,
+      weatherDescription1: undefined,
+      weatherDescription2: undefined,
+      weatherDescription3: undefined,
+      weatherDescription4: undefined,
+      weatherDescription5: undefined,
+      weatherDescription6: undefined,
+      weatherDescription7: undefined,
+      timePassed: 0,
+    }
+
+    this.changeCity = this.changeCity.bind(this);
+
   }
-
   getWeather = async () => {
 
     const api_call = await fetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.city}&key=${api_key}`);
@@ -41,29 +46,25 @@ class App extends React.Component {
 
     localStorage.setItem('time', new Date());
     const savedTime = new Date(localStorage.getItem('time'));
-    const timePassed = ((new Date() - savedTime) / 1000).toFixed(0);
+    let timePassed = ((new Date() - savedTime) / 1000).toFixed(0);
     console.log(localStorage.getItem('time'));
     console.log(new Date());
     console.log(timePassed);
 
-     this.setState({
+    this.setState({
       currTemp: data.data[0].temp,
       weatherDescription: data.data[0].weather.description,
       humidity: data.data[0].rh,
       dewPt: data.data[0].dewpt,
       uvIndex: data.data[0].uv.toFixed(0),
       visibility: data.data[0].vis,
-      city: data.data[0].city_name,
       timePassed: timePassed,
     });
   }
 
-
-
   getWeatherForecast = async () => {
 
-    const city = "Belgrade,RS";
-    const api_call = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${api_key}`);
+    const api_call = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${this.state.city}&key=${api_key}`);
     const data = await api_call.json();
     console.log(data.data);
     this.setState({
@@ -88,8 +89,24 @@ class App extends React.Component {
   componentDidMount() {
     this.getWeather();
     this.getWeatherForecast();
-    
+
   }
+
+  changeCity() {
+    if (this.state.city === "Novi Sad") {
+      this.setState({
+        city: "Belgrade",
+      })
+    }
+    else {
+      this.setState({
+        city: "Novi Sad",
+      })
+    }
+    return this.componentDidMount();
+  }
+
+  
 
   render() {
     return (
@@ -115,6 +132,8 @@ class App extends React.Component {
           </div>
         </div>
         <div id='main'>
+          <h1 onClick={this.changeCity}> {this.state.city} </h1>
+          {/* <p> (Click to change between cities) </p> */}
           <WeekForecast
             city={this.state.city}
             temp1={this.state.temp1}

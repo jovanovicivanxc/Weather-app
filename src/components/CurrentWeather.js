@@ -8,15 +8,15 @@ class CurrentWeather extends React.Component {
     return ( 
       <div>
         <div id="tempAndDes">
-          <p> {this.props.currTemp} &#176;</p> 
-          <p> {this.props.weatherDescription}</p>  
+          <p id="currTemp"> {this.props.currTemp} &#176;</p> 
+          <p id="currDes"> {this.props.weatherDescription}</p>  
         </div>
         <div id="icon">   
           <img id="iconImg" src={chooseIcon(this.props.weatherDescription)} alt="icon"/>
         </div>
         <div id="refresh">
           <img id="refImg" src={Refresh} onClick={this.props.refreshCurrentWeather} alt="refresh" />
-          &nbsp; Updated {this.props.timePassed} mins ago
+          &nbsp; <span>Updated {this.props.timePassed} mins ago </span>
         </div>
 
       </div>

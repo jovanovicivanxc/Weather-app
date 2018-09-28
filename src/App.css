@@ -1,55 +1,70 @@
 #sidebar {
     display: inline-block;
     width: 275px;
-    height: 500px;
+    height: 450px;
     float: left;
-    
-    }
+}
 
 #main {
     display: inline-block;
     width: 450px;
-    height: 500px;
-    border: 1px solid black;
+    height: 410px;
     float: left;
     margin:10px 10px 10px 0px;
-    }
+    background: url(./assets/images/bg.jpg);
+    background-size: cover;
+}
 
 #currWeather {
-    height: 275px;
-    border: 1px solid black;
+    height: 225px;
     margin:10px;
-    background-color: coral;
+    background-color:rgb(207, 182, 119);
+}
 
+#currTemp {
+    font-size: 30px;
+    padding-left: 20px; 
+}
+
+#currDes {
+    font-size: 15px;
+    padding-left: 20px; 
 }
 
 #detData {
-    height: 214px;
-    border: 1px solid black;
+    height: 174px;
     margin:10px;
-
+    background-color:rgb(207, 182, 119);
 }
 
 .field {
-    width: 120px;
-    height: 140px;
+    width: 104px;
+    height: 65px;
     float: left;
     display: inline-block;
+    padding: 10px;
+    text-align: center;
+}
+
+p, span {
+    margin: 10px;
+    color: white;
 }
 
 #headline {
-    height: 350px;
+    height: 157px;
 }
 
 #forcField {
-    height: 125px;
+    height: 174px;
     text-align: center;
-    width: 62px;
+    width: 63.7px;
     display: inline-block;
     float: left;
-    border: 1px solid gray;
-    background-color: goldenrod ;
-    }
+    background-color: rgb(207, 182, 119) ;
+    border-right: 0.5px solid wheat; 
+    opacity: 0.9;
+}
 
 #tempAndDes {
     display: inline-block;
@@ -65,22 +80,26 @@
     height:50px;
     }
 
+#forcField p {
+    margin-top: 30px;
+}
+
 #iconImg {
     width:80px;
+    margin-left: 15px;
+    margin-top: 15px;
 }
 
 #refresh {
     position: absolute;
-    top: 240px; 
+    top: 200px; 
     left: 50px;
 }
 
 #refImg {
     width: 20px;
-}
+}  
 
-#weekForecast {
-    background: url(./assets/images/bg.jpg);
-    background-size: cover;
-
+#main h1, #headline h3 {
+    margin-left: 20px;
 }

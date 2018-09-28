@@ -25,7 +25,6 @@ class WeekForecast extends React.Component {
     return ( 
       <div id="weekForecast">
         <div id="headline">
-          <h1> {this.props.city} </h1>
           <h3> {day} {month} </h3>
         </div>
         
