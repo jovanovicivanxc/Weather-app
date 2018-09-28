@@ -36,6 +36,10 @@ class App extends React.Component {
     }
 
     this.changeCity = this.changeCity.bind(this);
+    this.getWeather = this.getWeather.bind(this);
+    this.getWeatherForecast = this.getWeatherForecast.bind(this);
+
+
 
   }
   getWeather = async () => {
@@ -106,7 +110,7 @@ class App extends React.Component {
     return this.componentDidMount();
   }
 
-  
+
 
   render() {
     return (
