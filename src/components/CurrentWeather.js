@@ -16,7 +16,7 @@ class CurrentWeather extends React.Component {
         </div>
         <div id="refresh">
           <img id="refImg" src={Refresh} onClick={this.props.refreshCurrentWeather} alt="refresh" />
-          &nbsp; <span>Updated {this.props.timePassed} mins ago </span>
+          &nbsp; <span>Updated {this.props.timeago} </span>
         </div>
 
       </div>

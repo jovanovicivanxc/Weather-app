@@ -1,10 +1,12 @@
 import React from 'react';
+import moment from 'moment';
 import './App.css';
 import CurrentWeather from './components/CurrentWeather';
 import DetailedData from './components/DetailedData';
 import WeekForecast from './components/WeekForecast';
 
 const api_key = "53ef50b153144d289e1dc4cfc7676cf9";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -32,40 +34,44 @@ class App extends React.Component {
       weatherDescription5: undefined,
       weatherDescription6: undefined,
       weatherDescription7: undefined,
-      timePassed: 0,
-    }
+      image: true, 
+      timeago: "a few seconds ago",
+       }
 
     this.changeCity = this.changeCity.bind(this);
     this.getWeather = this.getWeather.bind(this);
     this.getWeatherForecast = this.getWeatherForecast.bind(this);
-
-
-
+    
   }
+
   getWeather = async () => {
 
     const api_call = await fetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.city}&key=${api_key}`);
     const data = await api_call.json();
     console.log(data.data[0]);
+    setInterval(this.reloadTime,5000);
 
-    localStorage.setItem('time', new Date());
-    const savedTime = new Date(localStorage.getItem('time'));
-    let timePassed = ((new Date() - savedTime) / 1000).toFixed(0);
-    console.log(localStorage.getItem('time'));
-    console.log(new Date());
-    console.log(timePassed);
-
+    // localStorage.setItem('time', new Date());
+    // let savedTime = new Date(localStorage.getItem('time'));
+    
+    
     this.setState({
-      currTemp: data.data[0].temp,
+      currTemp: data.data[0].temp.toFixed(0),
       weatherDescription: data.data[0].weather.description,
       humidity: data.data[0].rh,
       dewPt: data.data[0].dewpt,
       uvIndex: data.data[0].uv.toFixed(0),
       visibility: data.data[0].vis,
-      timePassed: timePassed,
-    });
+      });
   }
 
+  reloadTime = ()  => {
+    this.setState({
+     timeago: moment().startOf('minute').fromNow(),
+     });
+  }
+  
+  
   getWeatherForecast = async () => {
 
     const api_call = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${this.state.city}&key=${api_key}`);
@@ -86,15 +92,18 @@ class App extends React.Component {
       weatherDescription5: data.data[5].weather.description,
       weatherDescription6: data.data[6].weather.description,
       weatherDescription7: data.data[7].weather.description,
-
     });
   }
-
   componentDidMount() {
     this.getWeather();
     this.getWeatherForecast();
 
   }
+ 
+  reloadComponents () {
+    this.getWeather();
+    this.getWeatherForecast();
+     }
 
   changeCity() {
     if (this.state.city === "Novi Sad") {
@@ -107,12 +116,12 @@ class App extends React.Component {
         city: "Novi Sad",
       })
     }
-    return this.componentDidMount();
+    this.setState({image: !this.state.image})
+    return this.reloadComponents();
   }
 
-
-
   render() {
+    let backg = this.state.image ? "backgrBG" : "backgrNS";
     return (
       <div>
         <div id='sidebar'>
@@ -121,8 +130,7 @@ class App extends React.Component {
               currTemp={this.state.currTemp}
               weatherDescription={this.state.weatherDescription}
               refreshCurrentWeather={this.getWeather}
-
-              timePassed={this.state.timePassed}
+              timeago = {this.state.timeago} 
             />
 
           </div>
@@ -135,9 +143,9 @@ class App extends React.Component {
             />
           </div>
         </div>
-        <div id='main'>
+        <div id='main' className={backg}>
           <h1 onClick={this.changeCity}> {this.state.city} </h1>
-          {/* <p> (Click to change between cities) </p> */}
+          <span> (Click to change between cities) </span>
           <WeekForecast
             city={this.state.city}
             temp1={this.state.temp1}

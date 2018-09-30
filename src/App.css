@@ -1,3 +1,8 @@
+body {
+    font-family: 'Exo', sans-serif;
+}
+
+
 #sidebar {
     display: inline-block;
     width: 275px;
@@ -11,9 +16,19 @@
     height: 410px;
     float: left;
     margin:10px 10px 10px 0px;
+    
+}
+
+.backgrBG {
     background: url(./assets/images/bg.jpg);
     background-size: cover;
 }
+
+.backgrNS {
+    background: url(./assets/images/ns.jpg);
+    background-size: cover;
+}
+
 
 #currWeather {
     height: 225px;
@@ -27,8 +42,9 @@
 }
 
 #currDes {
-    font-size: 15px;
+    font-size: 13px;
     padding-left: 20px; 
+    margin: 0px;
 }
 
 #detData {
@@ -52,19 +68,28 @@ p, span {
 }
 
 #headline {
-    height: 157px;
+    height: 131px;
 }
 
 #forcField {
     height: 174px;
     text-align: center;
-    width: 63.7px;
+    width: 63px;
     display: inline-block;
     float: left;
     background-color: rgb(207, 182, 119) ;
     border-right: 0.5px solid wheat; 
     opacity: 0.9;
+
 }
+
+#forcField:hover {
+    font-size: 19px;
+    box-shadow: 0px 0px 11px 4px rgb(255, 255, 255);
+    background-color: rgb(197, 185, 154) ;
+
+} 
+
 
 #tempAndDes {
     display: inline-block;
@@ -81,25 +106,35 @@ p, span {
     }
 
 #forcField p {
-    margin-top: 30px;
+    margin-top: 27px;
 }
 
 #iconImg {
     width:80px;
-    margin-left: 15px;
+    margin-left: 0px;
     margin-top: 15px;
 }
 
 #refresh {
     position: absolute;
     top: 200px; 
-    left: 50px;
+    left: 40px;
+}
+
+#refresh span {
+    font-size: 13px;
 }
 
 #refImg {
-    width: 20px;
+    width: 17px;
 }  
 
-#main h1, #headline h3 {
+#main h1, #headline h3, #main span{
     margin-left: 20px;
+    margin-bottom: 0px;
+}
+
+#main span {
+    margin-top: 5px;
+    color: black;
 }
